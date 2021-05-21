@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  background-image: url(./images/luke-chesser-B_oL3jEt5L4-unsplash.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+@font-face {
+  font-family: Metamorphous;
+  src: url("https://fonts.googleapis.com/css2?family=Metamorphous&display=swap");
+}
+.page-title {
+  color: black;
+
+  font-family: Metamorphous;
+
+  font-weight: normal;
+  text-align: center;
+  font-size: 4em;
+}
+.game-info-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+}
+.game-info {
+  color: black;
+  font-size: 2em;
+  font-family: Metamorphous;
+}
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 15px;
+  margin: 50px;
+  justify-content: center;
+}
+
+.card {
+  background-color: black;
+  height: 175px;
+  width: 125px;
+}
+.front-face {
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateX(180deg);
+}
+.back-face {
+}
+img {
+  height: 175px;
+  width: 125px;
+  border: 2px solid black;
+}
+/* .card-back:hover {
+  transform: translateY(0);
+} */
