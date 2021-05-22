@@ -12,10 +12,10 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-@font-face {
+/* @font-face {
   font-family: Metamorphous;
-  src: url("https://fonts.googleapis.com/css2?family=Metamorphous&display=swap");
-}
+  /* src: url("https://fonts.googleapis.com/css2?family=Metamorphous&display=swap");} */
+
 .page-title {
   color: black;
 
@@ -41,25 +41,37 @@ body {
   grid-gap: 15px;
   margin: 50px;
   justify-content: center;
+  perspective: 500px;
 }
 
 .card {
   background-color: black;
   height: 175px;
   width: 125px;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.card:active {
+  transform: scale(0.97);
+  transition: ease-in-out;
+}
+.card.flip {
+  transform: rotateY(180deg);
 }
 .front-face {
   position: absolute;
-  backface-visibility: hidden;
-  transform: rotateX(180deg);
 }
 .back-face {
+  position: absolute;
+
+  transition: transform 500ms ease-in-out;
+}
+.front-face {
+  transform: rotateY(180deg);
 }
 img {
   height: 175px;
   width: 125px;
   border: 2px solid black;
 }
-/* .card-back:hover {
-  transform: translateY(0);
-} */
