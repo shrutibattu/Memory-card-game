@@ -3,11 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
-html {
-  min-height: 100vh;
-}
+
 body {
-  margin: 0;
   background-image: url(./images/luke-chesser-B_oL3jEt5L4-unsplash.jpg);
   background-attachment: fixed;
   background-size: cover;
@@ -25,53 +22,44 @@ body {
   text-align: center;
   font-size: 4em;
 }
-.game-info-container {
-  grid-column: 1 / -1;
+.game-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
+
 .game-info {
   color: black;
   font-size: 2em;
   font-family: Metamorphous;
 }
 .game-container {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-gap: 15px;
-  margin: 50px;
-  justify-content: center;
-  perspective: 500px;
+  margin: 30px;
+  height: 800px;
+  width: 550px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .card {
   background-color: black;
-  height: 175px;
-  width: 125px;
+  height: 150px;
+  width: 100px;
+
   transform: scale(1);
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
 }
 .card:active {
   transform: scale(0.97);
   transition: ease-in-out;
 }
-.card.flip {
-  transform: rotateY(180deg);
-}
-.front-face {
-  position: absolute;
-}
-.back-face {
-  position: absolute;
 
-  transition: transform 500ms ease-in-out;
-}
 .front-face {
-  transform: rotateY(180deg);
+  position: absolute;
+  /* transform: rotateY(180deg); */
 }
+
 img {
-  height: 175px;
-  width: 125px;
+  height: 150px;
+  width: 100px;
   border: 2px solid black;
 }
