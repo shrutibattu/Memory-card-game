@@ -1,6 +1,5 @@
 let cards = document.querySelectorAll(".card_inner");
 let firstClick = false;
-
 let cardPair = [];
 
 cards.forEach((card) => {
