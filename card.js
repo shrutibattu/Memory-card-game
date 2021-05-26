@@ -1,6 +1,6 @@
-const cards = document.querySelectorAll(".card");
+let cards = document.querySelectorAll(".card_inner");
 let firstClick = false;
-let counter = 0;
+
 let cardPair = [];
 
 cards.forEach((card) => {
@@ -21,19 +21,60 @@ for (let i = 0; i < cards.length; i++) {
     counter++;
     cardPair.push(cards[i]);
     check();
+  } else if (cards[i].state == "clicked") {
+    cards[i].style.transform = "rotateY(0deg)";
+    cards[i].state = "unclicked";
+    counter--;
+    cardPair = [];
   }
 }
 function check() {
-  if (counter == 2) {
+  if (cardPair.length == 2) {
     if (
       cardPair[0].querySelector("img").src == cardPair[1].querySelector("img")
     ) {
       matched();
     } else {
-      unmatched();
+      unmatched(cardPair[0], cardPair[1]);
     }
   }
 }
+
+function matched() {
+  cardPair[0].state = "blocked";
+  cardPair[1].state = "blocked";
+  counter = 0;
+  cardPair = [];
+  let score = document.querySelector("#score").innerHTML;
+  score++;
+  document.querySelector("#score").innerHTML = score;
+}
+
+function unmatched(x, y) {
+  setTimeout(() => {
+    x.state = "unclicked";
+    y.state = "unclicked";
+    x.style.transform = "rotateY(0deg)";
+    y.style.transform = "rotateY(0deg)";
+  }, 750);
+  cardPair[0].state = "blocked";
+  cardPair[1].state = "blocked";
+  counter = 0;
+  cardPair = [];
+}
+
+// function unmatched(x, y) {
+//   setTimeout(() => {
+//     // cardPair[0]
+//     x.style.transform = "rotateY(0deg)";
+//     // cardPair[1]
+//     y.style.transform = "rotateY(0deg)";
+//   }, 750);
+//   cardPair[0].state = "unclicked";
+//   cardPair[1].state = "unclicked";
+//   counter = 0;
+//   cardPair = [];
+// }
 function time() {
   let secs = 0;
   let mins = 0;
@@ -46,7 +87,7 @@ function time() {
       secs = 0;
       mins++;
     }
-    sec < 10 ? (SS = `0${secs}`) : (SS = `${secs}`);
+    secs < 10 ? (SS = `0${secs}`) : (SS = `${secs}`);
     mins < 10 ? (MM = `0${mins}`) : (SS = `${mins}`);
     document.querySelector("#time").innerHTML = `${MM}:${SS}`;
   }, 1000);

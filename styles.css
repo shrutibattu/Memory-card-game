@@ -1,65 +1,62 @@
-* {
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-image: url(./images/luke-chesser-B_oL3jEt5L4-unsplash.jpg);
+  background-image: url(images/luke-chesser-B_oL3jEt5L4-unsplash.jpg);
   background-attachment: fixed;
-  background-size: cover;
-}
-/* @font-face {
-  font-family: Metamorphous;
-  /* src: url("https://fonts.googleapis.com/css2?family=Metamorphous&display=swap");} */
-
-.page-title {
-  color: black;
-
-  font-family: Metamorphous;
-
-  font-weight: normal;
-  text-align: center;
-  font-size: 4em;
-}
-.game-info {
-  display: flex;
-  justify-content: space-evenly;
 }
 
-.game-info {
-  color: black;
-  font-size: 2em;
-  font-family: Metamorphous;
-}
-.game-container {
-  margin: 30px;
-  height: 800px;
-  width: 550px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+#container {
+  height: 550px;
+  margin-left: 25px;
 }
 
-.card {
-  background-color: black;
-  height: 150px;
-  width: 100px;
-
-  transform: scale(1);
-}
-.card:active {
-  transform: scale(0.97);
-  transition: ease-in-out;
+.card_outer {
+  height: 160px;
+  width: 120px;
+  background: transparent;
+  perspective: 1200px;
+  float: left;
+  margin-left: 40px;
+  margin-top: 20px;
 }
 
-.front-face {
+.card_inner {
   position: absolute;
-  /* transform: rotateY(180deg); */
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.75s ease;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(40, 40, 121, 1) 35%
+  );
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+#board {
+  height: 85px;
+  width: 450px;
+  border: 4px solid black;
+  margin: auto;
+  text-align: center;
+  margin-top: 15px;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 img {
-  height: 150px;
-  width: 100px;
-  border: 2px solid black;
+  width: 100%;
+  height: 100%;
 }
