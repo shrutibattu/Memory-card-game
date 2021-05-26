@@ -1,62 +1,55 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
   background-image: url(images/luke-chesser-B_oL3jEt5L4-unsplash.jpg);
   background-attachment: fixed;
 }
-
-#container {
-  height: 550px;
-  margin-left: 25px;
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
 }
-
-.card_outer {
-  height: 160px;
-  width: 120px;
-  background: transparent;
-  perspective: 1200px;
-  float: left;
-  margin-left: 40px;
-  margin-top: 20px;
-}
-
-.card_inner {
-  position: absolute;
-  height: 100%;
-  width: 100%;
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  border: 2px solid black;
+  transform: scale(1);
   transform-style: preserve-3d;
-  transition: all 0.75s ease;
+  transition: transform.5s;
 }
-
-.front,
-.back {
-  position: absolute;
-  height: 100%;
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform.2s;
+}
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+.front-face,
+.back-face {
   width: 100%;
-  background: linear-gradient(
-    45deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(40, 40, 121, 1) 35%
-  );
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
   backface-visibility: hidden;
-  border-radius: 10px;
-}
 
-.back {
+  border: 2px splid darkmagenta;
+}
+.front-face {
   transform: rotateY(180deg);
 }
 
-#board {
-  height: 85px;
-  width: 450px;
-  border: 4px solid black;
-  margin: auto;
-  text-align: center;
-  margin-top: 15px;
-  font-family: "Open Sans", "Helvetica Neue", sans-serif;
-}
-
 img {
-  width: 100%;
-  height: 100%;
+  width: 100px;
 }
