@@ -56,4 +56,8 @@ function resetBoard() {
     card.style.order = randomPos;
   });
 })(); // this function is wrapped in extra brackets whic is IIFE- Immediately Invoked Function Expression which means it is invoked right after its defination
+
+// function Result() {
+//   if (hasFlippedCard === cards.length) return alert("you have won the game");
+// }
 cards.forEach((card) => card.addEventListener("click", flipCard));
