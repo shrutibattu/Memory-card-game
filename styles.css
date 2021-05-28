@@ -10,7 +10,11 @@ body {
   background-image: url(images/spice.jpg);
   background-attachment: fixed;
 }
-
+h1 {
+  align-self: center;
+  color: purple;
+  background-color: black;
+}
 .memory-game {
   width: 640px;
   height: 640px;

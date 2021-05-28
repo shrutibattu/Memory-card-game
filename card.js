@@ -17,6 +17,7 @@ function flipCard() {
   secondCard = this;
 
   checkForMatch();
+  // result();
 }
 function checkForMatch() {
   //do cards match
@@ -50,6 +51,7 @@ function resetBoard() {
     null,
   ];
 }
+
 (function shuffle() {
   cards.forEach((card) => {
     let randomPos = Math.floor(Math.random() * 12);
@@ -57,7 +59,6 @@ function resetBoard() {
   });
 })(); // this function is wrapped in extra brackets whic is IIFE- Immediately Invoked Function Expression which means it is invoked right after its defination
 
-// function Result() {
-//   if (hasFlippedCard === cards.length) return alert("you have won the game");
-// }
-cards.forEach((card) => card.addEventListener("click", flipCard));
+cards.forEach((card) => {
+  card.addEventListener("click", flipCard);
+});
