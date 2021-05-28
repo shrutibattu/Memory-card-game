@@ -60,3 +60,9 @@ h1 {
 img {
   width: 100px;
 }
+@media screen and(man-width: 500px) {
+  .memory-game {
+    width: auto;
+    height: auto;
+  }
+}
