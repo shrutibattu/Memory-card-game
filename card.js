@@ -1,4 +1,11 @@
-// add psudeocode
+//  psudeocode
+//add event listner to cards
+//click on the first card and flip
+//click on the second card and flip
+// check for match
+// if matched disable the cards-remove event listner
+//if not matched unflip the cards back
+// lock the board so the cards cannot be clicked again
 
 //-----------------------------------
 
@@ -67,7 +74,7 @@ function unflipCards() {
     resetBoard();
   }, 1500);
 }
-//after each round firstcard and secondcard set to be null to meet the above "this" condtion
+//after each round firstcard and secondcard reset to be null to meet the above "this" condtion
 function resetBoard() {
   //es6 destructuring assignment
   [hasFlippedCard, lockBoard] = [false, false][(firstCard, secondCard)] = [
