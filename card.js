@@ -1,19 +1,35 @@
+// add psudeocode
+
+//-----------------------------------
+
+//click event and flipcard function is called
+
 const cards = document.querySelectorAll(".memory-card");
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 function flipCard() {
   if (lockBoard) return;
+
   if (this === firstCard) return;
+
+  //this will toggle the class that means if the class is there it removes and vice-versa
   this.classList.add("flip");
+
   if (!hasFlippedCard) {
+    //this means the player has clicked the card first time
     //firstclick
+
     hasFlippedCard = true;
+    //then set flipped card to true
     firstCard = this;
+    //firstcard is set to "this" keyword. "this" is the element that fired the event
     return;
   }
+  // now hasflipped card is set to false (if true then firstclick)or else
   //secondclick
   hasFlippedCard = false;
+  //as it is false the "this" variable is set to secondcard
   secondCard = this;
 
   checkForMatch();
@@ -21,6 +37,9 @@ function flipCard() {
 }
 function checkForMatch() {
   //do cards match
+
+  //in order to access the data attribute set in HTML we do this through "dataset" object
+  //element.dataset.name chosen
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
     //its a match
     disableCards();
@@ -30,7 +49,7 @@ function checkForMatch() {
   }
 }
 function disableCards() {
-  //its a match
+  //its a match then disable cards by removing the event listner
   firstCard.removeEventListner("click", flipCard);
   secondCard.removeEventListner("click", flipCard);
   resetBoard();
@@ -38,14 +57,19 @@ function disableCards() {
 function unflipCards() {
   lockBoard = true;
   //not a match
+
+  //set time out function to delay the remove "flip " by 1500 ms.to see the flipping
   setTimeout(() => {
+    //remove the flip class from the cards
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
     lockBoard = false;
     resetBoard();
   }, 1500);
 }
+//after each round firstcard and secondcard set to be null to meet the above "this" condtion
 function resetBoard() {
+  //es6 destructuring assignment
   [hasFlippedCard, lockBoard] = [false, false][(firstCard, secondCard)] = [
     null,
     null,
