@@ -1,4 +1,4 @@
-//  psudeocode
+//  pseudocode
 //add event listner to cards
 //click on the first card and flip
 //click on the second card and flip
@@ -50,6 +50,9 @@ function checkForMatch() {
   if (firstCard.dataset.framework === secondCard.dataset.framework) {
     //its a match
     disableCards();
+    checkForWinner();
+
+    return;
   } else {
     //not a match
     unflipCards();
@@ -57,8 +60,10 @@ function checkForMatch() {
 }
 function disableCards() {
   //its a match then disable cards by removing the event listner
-  firstCard.removeEventListner("click", flipCard);
-  secondCard.removeEventListner("click", flipCard);
+  firstCard.classList.add("matched");
+  secondCard.classList.add("matched");
+  // firstCard.removeEventListner("click", flipCard);
+  // secondCard.removeEventListner("click", flipCard);
   resetBoard();
 }
 function unflipCards() {
@@ -89,6 +94,12 @@ function resetBoard() {
     card.style.order = randomPos;
   });
 })(); // this function is wrapped in extra brackets whic is IIFE- Immediately Invoked Function Expression which means it is invoked right after its defination
+
+function checkForWinner() {
+  if (document.querySelectorAll(".matched").length === 12) {
+    document.getElementById("popup1").classList.add("show");
+  }
+}
 
 cards.forEach((card) => {
   card.addEventListener("click", flipCard);

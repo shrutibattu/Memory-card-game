@@ -1,5 +1,6 @@
 # Memory-card-game
 
+Welcome to my Memory card game.
 How The Game Works
 The game board consists of twelve "cards" arranged in a grid. The deck is made up of six different pairs of cards, each with different symbols on one side. The cards are arranged randomly on the grid with the symbol face down. The gameplay rules are very simple: flip over two hidden cards at a time to locate the ones that match!
 
