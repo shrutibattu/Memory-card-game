@@ -97,7 +97,7 @@ function resetBoard() {
 
 function checkForWinner() {
   if (document.querySelectorAll(".matched").length === 12) {
-    document.getElementById("popup1").classList.add("show");
+    document.getElementById("popup").classList.add("show");
   }
 }
 
