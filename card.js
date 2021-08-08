@@ -100,6 +100,10 @@ function checkForWinner() {
     document.getElementById("popup").classList.add("show");
   }
 }
+document.querySelector(".restart-btn").addEventListener("click", function () {
+  window.location.reload();
+  return false;
+});
 
 cards.forEach((card) => {
   card.addEventListener("click", flipCard);

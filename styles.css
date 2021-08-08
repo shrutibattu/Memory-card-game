@@ -93,12 +93,27 @@ img {
   padding: 20px;
   background: #ffffff;
   border-radius: 5px;
-  width: 85%;
+  width: 70%;
+  height: 25%;
   position: relative;
   transition: all 5s ease-in-out;
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
-
+.restart-btn {
+  height: 3rem;
+  width: 15rem;
+  background-color: purple;
+  border-radius: 10px;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-weight: bold;
+  align-items: center;
+}
 .show {
   visibility: visible !important;
   opacity: 100 !important;
