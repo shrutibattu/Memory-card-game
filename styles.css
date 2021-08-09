@@ -18,13 +18,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 1rem;
+  margin: 2rem;
 }
 h1 {
-  font-size: 2rem;
-  color: darkmagenta;
-  background: black;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+
+  color: rgb(224, 4, 125);
+  background: rgb(31, 1, 17);
 }
 .memory-game {
   width: 640px;
